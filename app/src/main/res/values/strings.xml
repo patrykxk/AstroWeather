@@ -22,4 +22,10 @@
     <string name="sunset">Sunset</string>
     <string name="Dusk">Dusk</string>
     <string name="dawn">Dawn</string>
+    <string name="moonrise">Moonrise</string>
+    <string name="moonset">Moonset</string>
+    <string name="newMoon">New moon</string>
+    <string name="moonPhase">Moon phase</string>
+    <string name="synodicDay">Day of synodic month</string>
+    <string name="fullMoon">Full moon</string>
 </resources>
