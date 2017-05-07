@@ -25,14 +25,14 @@ public class MoonFragment extends Fragment {
         latitudeTextView = (TextView) view.findViewById(R.id.latitudeTextView);
         longitudeTextView = (TextView) view.findViewById(R.id.longitudeTextView);
 
-        longitudeTextView.setText( String.valueOf(SettingsParameters.longtitude));
-        latitudeTextView.setText(String.valueOf(SettingsParameters.latitude));
+        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longtitude));
+        latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
 
         return view;
     }
 
-    public static void setLocation(double longtitude, double latitude) {
-        longitudeTextView.setText("Longtitude : " + longtitude);
+    public static void setLocation(double longitude, double latitude) {
+        longitudeTextView.setText("Longitude : " + longitude);
         latitudeTextView.setText("Latitude : " + latitude);
     }
 

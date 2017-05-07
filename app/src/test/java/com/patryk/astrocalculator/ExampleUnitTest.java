@@ -22,14 +22,14 @@ public class ExampleUnitTest {
     }
     @Test
     public void astro() throws Exception {
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        int month = Calendar.getInstance().get(Calendar.MONTH)+1;
-        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int hour = Calendar.getInstance().get(Calendar.HOUR);
-        int minute = Calendar.getInstance().get(Calendar.MINUTE);
-        int second = Calendar.getInstance().get(Calendar.SECOND);
-
-        int timezoneOffset = 1;
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH)+1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+        int timezoneOffset = calendar.get(Calendar.ZONE_OFFSET);
         boolean daylightSaving = true;
 
         AstroDateTime astroDateTime = new AstroDateTime(year,month,day,hour,minute,second,timezoneOffset,daylightSaving);

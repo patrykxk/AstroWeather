@@ -18,4 +18,8 @@
     <string name="frequencySettings">Refreshing frequency</string>
     <string name="time">Minutes:</string>
     <string name="apply">Apply Settings</string>
+    <string name="sunrise">Sunrise:</string>
+    <string name="sunset">Sunset</string>
+    <string name="Dusk">Dusk</string>
+    <string name="dawn">Dawn</string>
 </resources>

@@ -14,11 +14,11 @@ import android.widget.Toast;
 public class SettingsActivity extends AppCompatActivity{
 
         private EditText latitudeEditText;
-        private EditText longtitudeEditText;
+        private EditText longitudeEditText;
         private EditText frequencyEditText;
         private Button applyButton;
         private double latitude;
-        private double longtitude;
+        private double longitude;
         private int frequency;
 
         @Override
@@ -26,13 +26,13 @@ public class SettingsActivity extends AppCompatActivity{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_settings);
             latitudeEditText  =(EditText)findViewById(R.id.latitude);
-            longtitudeEditText  =(EditText)findViewById(R.id.longtitude);
+            longitudeEditText =(EditText)findViewById(R.id.longtitude);
             frequencyEditText  =(EditText)findViewById(R.id.frequency);
             applyButton = (Button) findViewById(R.id.apply);
 
             setButtonListener();
             this.latitudeEditText.setText(String.valueOf(SettingsParameters.longtitude));
-            this.longtitudeEditText.setText(String.valueOf(SettingsParameters.latitude));
+            this.longitudeEditText.setText(String.valueOf(SettingsParameters.latitude));
             this.frequencyEditText.setText(String.valueOf(SettingsParameters.frequency));
         }
 
@@ -40,19 +40,19 @@ public class SettingsActivity extends AppCompatActivity{
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ("".equals(latitudeEditText.getText().toString().trim()) || "".equals(longtitudeEditText.getText().toString().trim())
+                if ("".equals(latitudeEditText.getText().toString().trim()) || "".equals(longitudeEditText.getText().toString().trim())
                         || "".equals(frequencyEditText.getText().toString().trim())) {
                     showMessage("Enter values!");
                     return;
                 }
                 latitude = Double.parseDouble(String.valueOf(latitudeEditText.getText()));
-                longtitude = Double.parseDouble(String.valueOf(longtitudeEditText.getText()));
+                longitude = Double.parseDouble(String.valueOf(longitudeEditText.getText()));
                 frequency = Integer.parseInt(String.valueOf(frequencyEditText.getText()));
 
-                SettingsParameters.longtitude = longtitude;
+                SettingsParameters.longtitude = longitude;
                 SettingsParameters.latitude = latitude;
                 SettingsParameters.frequency = frequency;
-                SunFragment.setLocation(SettingsParameters.longtitude, SettingsParameters.latitude);
+                SunFragment.setLocationTextViews(SettingsParameters.longtitude, SettingsParameters.latitude);
                 MoonFragment.setLocation(SettingsParameters.longtitude, SettingsParameters.latitude);
 
                 showMessage("Settings applied!");
