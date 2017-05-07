@@ -12,4 +12,10 @@
     <string name="author">Author: &authorName;</string>
     <string name="projectDescription">Academical project</string>
     <string name="contact">Contact on Github: patrykxk</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="coordinateSettings">Coordinates:</string>
+    <string name="frequencySettings">Refreshing frequency</string>
+    <string name="time">Minutes:</string>
+    <string name="apply">Apply Settings</string>
 </resources>
