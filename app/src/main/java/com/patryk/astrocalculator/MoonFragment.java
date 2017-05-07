@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.astrocalculator.AstroCalculator;
@@ -24,6 +23,7 @@ public class MoonFragment extends Fragment {
     private static TextView longitudeTextView;
     private static TextView moonRise;
     private static TextView moonSet;
+    private static TextView newMoon;
     private static TextView fullMoon;
     private static TextView moonphase;
     private static TextView lunarDay;
@@ -34,15 +34,17 @@ public class MoonFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_moon, container, false);
         latitudeTextView = (TextView) view.findViewById(R.id.latitudeTextView);
+        longitudeTextView = (TextView) view.findViewById(R.id.longitudeTextView);
         moonRise = (TextView) view.findViewById(R.id.moonriseTime);
         moonSet = (TextView) view.findViewById(R.id.moonsetTime);
+        newMoon = (TextView) view.findViewById(R.id.newMoonTime);
         fullMoon = (TextView) view.findViewById(R.id.fullMoon);
         moonphase = (TextView) view.findViewById(R.id.moonPhase);
         lunarDay = (TextView) view.findViewById(R.id.synodicDay);
 
         getMoonInfo();
 
-        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longtitude));
+        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
         latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
 
         return view;
@@ -59,16 +61,17 @@ public class MoonFragment extends Fragment {
         boolean daylightSaving = true;
 
         AstroDateTime astroDateTime = new AstroDateTime(year,month,day,hour,minute,second,timezoneOffset,daylightSaving);
-        AstroCalculator astro = new AstroCalculator(astroDateTime, new AstroCalculator.Location(SettingsParameters.latitude, SettingsParameters.longtitude) );
+        AstroCalculator astro = new AstroCalculator(astroDateTime, new AstroCalculator.Location(SettingsParameters.latitude, SettingsParameters.longitude) );
         setMoonInfoTextViews(astro.getMoonInfo());
     }
 
     private static void setMoonInfoTextViews(AstroCalculator.MoonInfo moonInfo) {
-            moonRise.setText(moonInfo.getMoonrise().toString());
-            moonSet.setText(moonInfo.getMoonset().toString());
-            fullMoon.setText(moonInfo.getNextFullMoon().toString());
-            moonphase.setText((int) moonInfo.getIllumination());
-            lunarDay.setText((CharSequence) moonInfo.getNextNewMoon());
+            moonRise.setText(String.valueOf(moonInfo.getMoonrise()));
+            moonSet.setText(String.valueOf(moonInfo.getMoonset()));
+            newMoon.setText(String.valueOf(moonInfo.getNextNewMoon()));
+            fullMoon.setText(String.valueOf(moonInfo.getNextFullMoon()));
+            moonphase.setText(String.valueOf(moonInfo.getIllumination()));
+            lunarDay.setText((String.valueOf(moonInfo.getNextNewMoon())));
     }
 
 

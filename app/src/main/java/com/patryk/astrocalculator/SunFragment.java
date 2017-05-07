@@ -46,7 +46,7 @@ public class SunFragment extends Fragment {
 
         getSunInfo();
 
-        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longtitude));
+        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
         latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
 
         return view;
@@ -64,7 +64,7 @@ public class SunFragment extends Fragment {
         boolean daylightSaving = true;
 
         AstroDateTime astroDateTime = new AstroDateTime(year,month,day,hour,minute,second,timezoneOffset,daylightSaving);
-        AstroCalculator astro = new AstroCalculator(astroDateTime, new AstroCalculator.Location(SettingsParameters.latitude, SettingsParameters.longtitude) );
+        AstroCalculator astro = new AstroCalculator(astroDateTime, new AstroCalculator.Location(SettingsParameters.latitude, SettingsParameters.longitude) );
         setSunInfoTextViews(astro.getSunInfo());
     }
 

@@ -6,7 +6,7 @@ package com.patryk.astrocalculator;
  */
 
 public class SettingsParameters {
-        public static double longtitude = 19;
+        public static double longitude = 19;
         public static double latitude = 51;
         public static int frequency = 30;
 }
