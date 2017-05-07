@@ -54,7 +54,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/latitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +84,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/longtitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -135,13 +135,13 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText9"
+                android:id="@+id/frequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="numberDecimal"
+                android:inputType="number"
                 android:paddingRight="10dp" />
 
         </TableRow>
@@ -158,7 +158,7 @@
             android:weightSum="1">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/apply"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
