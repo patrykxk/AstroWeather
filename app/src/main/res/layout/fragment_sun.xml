@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="20dp">
 
     <TextView
         android:id="@+id/latitudeTextView"
@@ -31,12 +32,16 @@
         android:id="@+id/sunriseTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Time: " />
 
     <TextView
         android:id="@+id/sunriseAzimuth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Azimuth" />
 
     <TextView
@@ -52,12 +57,16 @@
         android:id="@+id/sunsetTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Time: " />
 
     <TextView
         android:id="@+id/sunsetAzimuth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Azimuth" />
 
     <TextView
@@ -73,6 +82,8 @@
         android:id="@+id/duskTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Time: " />
 
     <TextView
@@ -88,5 +99,7 @@
         android:id="@+id/dawnTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Time: " />
 </LinearLayout>

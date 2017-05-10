@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="?attr/colorControlHighlight"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.patryk.astrocalculator.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -17,8 +17,5 @@
         layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp" />
+        android:background="@android:color/background_light" />
 </LinearLayout>

@@ -17,9 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ViewPager vpPager = (ViewPager) findViewById(R.id.viewPager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         adapterViewPager = new FragmentPagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+        viewPager.setAdapter(adapterViewPager);
 
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
