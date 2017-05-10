@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="title">50sp</dimen>
+    <dimen name="h1">32sp</dimen>
+    <dimen name="p">18sp</dimen>
+    <bool name="isTablet">true</bool>
+</resources>

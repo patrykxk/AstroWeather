@@ -13,20 +13,22 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/sun"
-        android:textSize="40sp"
+        android:textSize="@dimen/title"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/latitudeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/longitudeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/textView3"
@@ -34,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/sunrise"
-        android:textSize="24sp"
+        android:textSize="@dimen/h1"
         android:textStyle="bold" />
 
     <TextView
@@ -43,7 +45,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Time: " />
+        android:text="Time: "
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/sunriseAzimuth"
@@ -51,7 +54,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Azimuth" />
+        android:text="Azimuth"
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/textView4"
@@ -59,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/sunset"
-        android:textSize="24sp"
+        android:textSize="@dimen/h1"
         android:textStyle="bold" />
 
     <TextView
@@ -68,7 +72,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Time: " />
+        android:text="Time: "
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/sunsetAzimuth"
@@ -84,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/Dusk"
-        android:textSize="24sp"
+        android:textSize="@dimen/h1"
         android:textStyle="bold" />
 
     <TextView
@@ -93,7 +98,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Time: " />
+        android:text="Time: "
+        android:textSize="@dimen/p" />
 
     <TextView
         android:id="@+id/textView5"
@@ -101,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/dawn"
-        android:textSize="24sp"
+        android:textSize="@dimen/h1"
         android:textStyle="bold" />
 
     <TextView
@@ -110,5 +116,6 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Time: " />
+        android:text="Time: "
+        android:textSize="@dimen/p" />
 </LinearLayout>

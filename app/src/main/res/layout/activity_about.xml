@@ -4,7 +4,6 @@
     android:layout_height="match_parent">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,17 +14,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/projectDescription" />
+            android:text="@string/projectDescription"
+            android:textSize="@dimen/p" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView7"
             android:gravity="center"
             android:text="@string/author"
-            android:layout_below="@+id/textView7"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="@dimen/p" />
 
         <TextView
             android:id="@+id/textView9"
@@ -35,7 +36,8 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView8"
             android:gravity="center"
-            android:text="@string/contact" />
+            android:text="@string/contact"
+            android:textSize="@dimen/p" />
     </RelativeLayout>
 
 </LinearLayout>
