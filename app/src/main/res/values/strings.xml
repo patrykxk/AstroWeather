@@ -28,4 +28,6 @@
     <string name="moonPhase">Moon phase</string>
     <string name="synodicDay">Day of synodic month</string>
     <string name="fullMoon">Full moon</string>
+    <string name="sun">Sun</string>
+    <string name="moon">Moon</string>
 </resources>

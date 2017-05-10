@@ -6,6 +6,15 @@
     android:paddingTop="20dp">
 
     <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/moon"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/latitudeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
