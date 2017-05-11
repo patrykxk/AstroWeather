@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.patryk.astrocalculator.SunFragment"
+        android:name="com.patryk.astrocalculator.FragmentSun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="45"
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="com.patryk.astrocalculator.MoonFragment"
+        android:name="com.patryk.astrocalculator.FragmentMoon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="65"

@@ -19,9 +19,9 @@ public class FragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new SunFragment();
+                return new FragmentSun();
             case 1:
-                return new MoonFragment();
+                return new FragmentMoon();
         }
         return null;
     }

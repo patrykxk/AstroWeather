@@ -1,7 +1,12 @@
 package com.patryk.astrocalculator;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +23,7 @@ import java.util.Calendar;
  */
 
 
-public class MoonFragment extends Fragment {
+public class FragmentMoon extends Fragment {
     private static TextView latitudeTextView;
     private static TextView longitudeTextView;
     private static TextView moonRise;
@@ -27,6 +32,9 @@ public class MoonFragment extends Fragment {
     private static TextView fullMoon;
     private static TextView moonphase;
     private static TextView lunarDay;
+
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable runnable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,11 +50,18 @@ public class MoonFragment extends Fragment {
         moonphase = (TextView) view.findViewById(R.id.moonPhase);
         lunarDay = (TextView) view.findViewById(R.id.synodicDay);
 
-        getMoonInfo();
+        //getMoonInfo();
 
         longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
         latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
-
+        runnable = new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void run() {
+                getMoonInfo();
+                handler.postDelayed(runnable, SettingsParameters.refreshTimeInMinutes * 60000);
+            }
+        };
+        new Thread(runnable).start();
         return view;
     }
     private static void getMoonInfo() {

@@ -33,7 +33,7 @@ public class SettingsActivity extends AppCompatActivity{
             setButtonListener();
             this.latitudeEditText.setText(String.valueOf(SettingsParameters.longitude));
             this.longitudeEditText.setText(String.valueOf(SettingsParameters.latitude));
-            this.frequencyEditText.setText(String.valueOf(SettingsParameters.frequency));
+            this.frequencyEditText.setText(String.valueOf(SettingsParameters.refreshTimeInMinutes));
         }
 
     private void setButtonListener() {
@@ -51,9 +51,9 @@ public class SettingsActivity extends AppCompatActivity{
 
                 SettingsParameters.longitude = longitude;
                 SettingsParameters.latitude = latitude;
-                SettingsParameters.frequency = frequency;
-                SunFragment.setLocationTextViews(SettingsParameters.longitude, SettingsParameters.latitude);
-                MoonFragment.setLocation(SettingsParameters.longitude, SettingsParameters.latitude);
+                SettingsParameters.refreshTimeInMinutes = frequency;
+                FragmentSun.setLocationTextViews(SettingsParameters.longitude, SettingsParameters.latitude);
+                FragmentMoon.setLocation(SettingsParameters.longitude, SettingsParameters.latitude);
 
                 showMessage("Settings applied!");
             }

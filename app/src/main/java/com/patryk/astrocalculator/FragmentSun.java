@@ -1,15 +1,24 @@
 package com.patryk.astrocalculator;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
 
+import org.w3c.dom.Text;
+
+import java.text.ParseException;
 import java.util.Calendar;
 
 /**
@@ -17,7 +26,7 @@ import java.util.Calendar;
  */
 
 
-public class SunFragment extends Fragment {
+public class FragmentSun extends Fragment {
     private static TextView latitudeTextView;
     private static TextView longitudeTextView;
     private static TextView sunriseTime;
@@ -26,10 +35,12 @@ public class SunFragment extends Fragment {
     private static TextView sunsetAzimuth;
     private static TextView duskTime;
     private static TextView dawnTime;
+    private TextClock textClock;
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable runnable;
 
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,11 +54,20 @@ public class SunFragment extends Fragment {
         sunsetAzimuth = (TextView) view.findViewById(R.id.sunsetAzimuth);
         duskTime = (TextView) view.findViewById(R.id.duskTime);
         dawnTime = (TextView) view.findViewById(R.id.dawnTime);
-
-        getSunInfo();
+        textClock = (TextClock) view.findViewById(R.id.textClock);
 
         longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
         latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
+        //setTimeFormat();
+
+        runnable = new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void run() {
+                    getSunInfo();
+                handler.postDelayed(runnable, SettingsParameters.refreshTimeInMinutes * 60000);
+            }
+        };
+        new Thread(runnable).start();
 
         return view;
     }
@@ -68,6 +88,14 @@ public class SunFragment extends Fragment {
         setSunInfoTextViews(astro.getSunInfo());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void setTimeFormat() {
+        if (textClock.is24HourModeEnabled()) {
+            textClock.setFormat24Hour(("kk:mm:ss"));
+        } else {
+            textClock.setFormat12Hour(("kk:mm:ss"));
+        }
+    }
     private static void setSunInfoTextViews(AstroCalculator.SunInfo sunInfo){
         sunriseTime.setText("Time: " + sunInfo.getSunrise().toString());
         sunriseAzimuth.setText("Azimuth: " + String.valueOf(sunInfo.getAzimuthRise()));

@@ -18,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if(getResources().getBoolean(R.bool.isTablet)) {
-            System.out.println("Talet");
-        } else {
+        if(!getResources().getBoolean(R.bool.isTablet)) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
             viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
