@@ -18,6 +18,13 @@
             android:textSize="@dimen/title"
             android:textStyle="bold" />
 
+        <TextClock
+            android:id="@+id/textClock2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.Material.Small" />
+
         <TextView
             android:id="@+id/latitudeTextView"
             android:layout_width="match_parent"
