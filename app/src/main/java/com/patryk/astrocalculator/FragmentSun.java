@@ -6,25 +6,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
 
-import org.w3c.dom.Text;
-
-import java.text.ParseException;
 import java.util.Calendar;
 
 /**
  * Created by Patryk on 2017-05-07.
  */
-
 
 public class FragmentSun extends Fragment {
     private static TextView latitudeTextView;
@@ -35,12 +29,9 @@ public class FragmentSun extends Fragment {
     private static TextView sunsetAzimuth;
     private static TextView duskTime;
     private static TextView dawnTime;
-    private TextClock textClock;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
 
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,11 +45,9 @@ public class FragmentSun extends Fragment {
         sunsetAzimuth = (TextView) view.findViewById(R.id.sunsetAzimuth);
         duskTime = (TextView) view.findViewById(R.id.duskTime);
         dawnTime = (TextView) view.findViewById(R.id.dawnTime);
-        textClock = (TextClock) view.findViewById(R.id.textClock);
 
-        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
-        latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
-        //setTimeFormat();
+        latitudeTextView.setText(getString(R.string.latitude) + ": " + String.valueOf(SettingsParameters.latitude));
+        longitudeTextView.setText(getString(R.string.longitude) + ": " + String.valueOf(SettingsParameters.longitude));
 
         runnable = new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -88,26 +77,18 @@ public class FragmentSun extends Fragment {
         setSunInfoTextViews(astro.getSunInfo());
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void setTimeFormat() {
-        if (textClock.is24HourModeEnabled()) {
-            textClock.setFormat24Hour(("kk:mm:ss"));
-        } else {
-            textClock.setFormat12Hour(("kk:mm:ss"));
-        }
-    }
     private static void setSunInfoTextViews(AstroCalculator.SunInfo sunInfo){
-        sunriseTime.setText("Time: " + sunInfo.getSunrise().toString());
-        sunriseAzimuth.setText("Azimuth: " + String.valueOf(sunInfo.getAzimuthRise()));
-        sunsetTime.setText("Time: " + sunInfo.getSunset().toString());
-        sunsetAzimuth.setText("Azimuth: " + String.valueOf(sunInfo.getAzimuthSet()));
-        duskTime.setText("Time: " + sunInfo.getTwilightEvening().toString());
-        dawnTime.setText("Time: " + sunInfo.getTwilightMorning().toString());
+        sunriseTime.setText("Time" + ": " + sunInfo.getSunrise().toString());
+        sunriseAzimuth.setText("Azimuth" + " : "  + String.valueOf(sunInfo.getAzimuthRise()));
+        sunsetTime.setText("Time" + ": " + sunInfo.getSunset().toString());
+        sunsetAzimuth.setText("Azimuth" + " : " + String.valueOf(sunInfo.getAzimuthSet()));
+        duskTime.setText(sunInfo.getTwilightEvening().toString());
+        dawnTime.setText(sunInfo.getTwilightMorning().toString());
     }
 
     public static void setLocationTextViews(double longitude, double latitude) {
-        longitudeTextView.setText("Longitude : " + longitude);
-        latitudeTextView.setText("Latitude : " + latitude);
+        longitudeTextView.setText("Longitude" + ": " + longitude);
+        latitudeTextView.setText("Latitude" + " : "  + latitude);
         getSunInfo();
     }
 }

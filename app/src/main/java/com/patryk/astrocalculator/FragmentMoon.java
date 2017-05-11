@@ -50,10 +50,9 @@ public class FragmentMoon extends Fragment {
         moonphase = (TextView) view.findViewById(R.id.moonPhase);
         lunarDay = (TextView) view.findViewById(R.id.synodicDay);
 
-        //getMoonInfo();
+        latitudeTextView.setText(getString(R.string.latitude) + ": " + String.valueOf(SettingsParameters.latitude));
+        longitudeTextView.setText(getString(R.string.longitude) + ": " + String.valueOf(SettingsParameters.longitude));
 
-        longitudeTextView.setText("Longitude : " + String.valueOf(SettingsParameters.longitude));
-        latitudeTextView.setText("Latitude : " + String.valueOf(SettingsParameters.latitude));
         runnable = new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void run() {
@@ -91,8 +90,8 @@ public class FragmentMoon extends Fragment {
 
 
     public static void setLocation(double longitude, double latitude) {
-        longitudeTextView.setText("Longitude : " + longitude);
-        latitudeTextView.setText("Latitude : " + latitude);
+        longitudeTextView.setText("Longitude" + ": " + longitude);
+        latitudeTextView.setText("Latitude" + " : "  + latitude);
         getMoonInfo();
     }
 

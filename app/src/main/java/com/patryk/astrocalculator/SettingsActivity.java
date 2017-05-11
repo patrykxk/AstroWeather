@@ -21,6 +21,8 @@ public class SettingsActivity extends AppCompatActivity{
         private double longitude;
         private int frequency;
 
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
