@@ -54,11 +54,13 @@ public class SettingsActivity extends AppCompatActivity{
                 SettingsParameters.longitude = longitude;
                 SettingsParameters.latitude = latitude;
                 SettingsParameters.refreshTimeInMinutes = frequency;
-
-                FragmentSun.setLocationTextViews(SettingsParameters.longitude, SettingsParameters.latitude);
-                FragmentMoon.setLocation(SettingsParameters.longitude, SettingsParameters.latitude);
-
-                showMessage("Settings applied!");
+                if(longitude>180 || longitude<-180 || latitude<-90 || latitude>90){
+                    showMessage("Enter correct values!");
+                }else {
+                    FragmentSun.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
+                    FragmentMoon.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
+                    showMessage("Settings applied!");
+                }
             }
         });
     }

@@ -82,8 +82,8 @@ public class FragmentSun extends Fragment {
         sunriseAzimuth.setText("Azimuth" + " : "  + String.format("%1$.2f",sunInfo.getAzimuthRise()) + "\u00B0");
         sunsetTime.setText("Time" + ": " + formatTime(sunInfo.getSunset().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
         sunsetAzimuth.setText("Azimuth" + " : " + String.format("%1$.2f",sunInfo.getAzimuthSet()) + "\u00B0");
-        duskTime.setText(formatTime(sunInfo.getTwilightEvening().getHour()) +":"+ sunInfo.getSunrise().getMinute());
-        dawnTime.setText(formatTime(sunInfo.getTwilightMorning().getHour()) +":"+ sunInfo.getSunrise().getMinute());
+        duskTime.setText(formatTime(sunInfo.getTwilightEvening().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
+        dawnTime.setText(formatTime(sunInfo.getTwilightMorning().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
     }
 
     private static String formatTime(int time){
@@ -94,7 +94,7 @@ public class FragmentSun extends Fragment {
         return stringTime;
     }
 
-    public static void setLocationTextViews(double longitude, double latitude) {
+    public static void updateInfo(double longitude, double latitude) {
         longitudeTextView.setText("Longitude" + ": " + longitude);
         latitudeTextView.setText("Latitude" + " : "  + latitude);
         getSunInfo();

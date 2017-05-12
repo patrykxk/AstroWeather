@@ -90,7 +90,7 @@ public class FragmentMoon extends Fragment {
     }
 
 
-    public static void setLocation(double longitude, double latitude) {
+    public static void updateInfo(double longitude, double latitude) {
         longitudeTextView.setText("Longitude" + ": " + longitude);
         latitudeTextView.setText("Latitude" + " : "  + latitude);
         getMoonInfo();

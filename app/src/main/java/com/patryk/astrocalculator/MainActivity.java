@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
             viewPager.setAdapter(adapterViewPager);
         }
 
-
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }

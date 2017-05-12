@@ -98,7 +98,8 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Azimuth" />
+            android:text="Azimuth"
+            android:textSize="@dimen/p" />
 
         <TextView
             android:id="@+id/textView5"
