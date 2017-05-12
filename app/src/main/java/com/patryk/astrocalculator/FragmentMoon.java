@@ -84,7 +84,8 @@ public class FragmentMoon extends Fragment {
             moonSet.setText(String.valueOf(moonInfo.getMoonset()));
             newMoon.setText(String.valueOf(moonInfo.getNextNewMoon()));
             fullMoon.setText(String.valueOf(moonInfo.getNextFullMoon()));
-            moonphase.setText(String.valueOf(moonInfo.getIllumination()));
+            int x = (int) (moonInfo.getIllumination()*100);
+            moonphase.setText(x + "%");
             lunarDay.setText((String.valueOf(moonInfo.getNextNewMoon())));
     }
 

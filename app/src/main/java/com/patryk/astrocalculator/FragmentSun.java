@@ -78,12 +78,20 @@ public class FragmentSun extends Fragment {
     }
 
     private static void setSunInfoTextViews(AstroCalculator.SunInfo sunInfo){
-        sunriseTime.setText("Time" + ": " + sunInfo.getSunrise().toString());
-        sunriseAzimuth.setText("Azimuth" + " : "  + String.valueOf(sunInfo.getAzimuthRise()));
-        sunsetTime.setText("Time" + ": " + sunInfo.getSunset().toString());
-        sunsetAzimuth.setText("Azimuth" + " : " + String.valueOf(sunInfo.getAzimuthSet()));
-        duskTime.setText(sunInfo.getTwilightEvening().toString());
-        dawnTime.setText(sunInfo.getTwilightMorning().toString());
+        sunriseTime.setText("Time" + ": " + formatTime(sunInfo.getSunrise().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
+        sunriseAzimuth.setText("Azimuth" + " : "  + String.format("%1$.2f",sunInfo.getAzimuthRise()) + "\u00B0");
+        sunsetTime.setText("Time" + ": " + formatTime(sunInfo.getSunset().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
+        sunsetAzimuth.setText("Azimuth" + " : " + String.format("%1$.2f",sunInfo.getAzimuthSet()) + "\u00B0");
+        duskTime.setText(formatTime(sunInfo.getTwilightEvening().getHour()) +":"+ sunInfo.getSunrise().getMinute());
+        dawnTime.setText(formatTime(sunInfo.getTwilightMorning().getHour()) +":"+ sunInfo.getSunrise().getMinute());
+    }
+
+    private static String formatTime(int time){
+        String stringTime = String.valueOf(time);
+        if(time<10){
+            stringTime = "0" + time;
+        }
+        return stringTime;
     }
 
     public static void setLocationTextViews(double longitude, double latitude) {

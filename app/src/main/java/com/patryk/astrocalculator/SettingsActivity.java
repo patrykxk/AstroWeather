@@ -54,6 +54,7 @@ public class SettingsActivity extends AppCompatActivity{
                 SettingsParameters.longitude = longitude;
                 SettingsParameters.latitude = latitude;
                 SettingsParameters.refreshTimeInMinutes = frequency;
+
                 FragmentSun.setLocationTextViews(SettingsParameters.longitude, SettingsParameters.latitude);
                 FragmentMoon.setLocation(SettingsParameters.longitude, SettingsParameters.latitude);
 
