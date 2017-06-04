@@ -3,5 +3,6 @@
     <dimen name="title">40sp</dimen>
     <dimen name="h1">24sp</dimen>
     <dimen name="p">14sp</dimen>
+    <dimen name="icon">90sp</dimen>
     <bool name="isTablet">false</bool>
 </resources>

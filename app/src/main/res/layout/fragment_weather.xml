@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/weather_fragment"
+    android:layout_height="match_parent">
+    <!--tools:context="ah.hathi.simpleweather.WeatherActivity$PlaceholderFragment" >-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/city_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="City"
+            android:textSize="@dimen/title" />
+
+        <TextView
+            android:id="@+id/updated_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Last update"
+            android:textSize="@dimen/p" />
+
+        <TextView
+            android:id="@+id/weather_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="ICO"
+            android:textSize="@dimen/icon" />
+
+        <TextView
+            android:id="@+id/current_temperature_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="20C"
+            android:textSize="@dimen/title" />
+
+        <TextView
+            android:id="@+id/details_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="details"
+            android:textSize="@dimen/p" />
+    </LinearLayout>
+</RelativeLayout>

@@ -8,8 +8,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 
 public class FragmentPagerAdapter extends FragmentStatePagerAdapter {
-    private static int NUM_ITEMS = 2;
-    private String titles[] = {"Sun", "Moon"};
+    private static int NUM_ITEMS = 3;
+    private String titles[] = {"Weather", "Sun", "Moon"};
 
     public FragmentPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -19,9 +19,12 @@ public class FragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new FragmentSun();
+                return new FragmentWeather();
             case 1:
+                return new FragmentSun();
+            case 2:
                 return new FragmentMoon();
+
         }
         return null;
     }

@@ -31,4 +31,18 @@
     <string name="fullMoon">Full moon</string>
     <string name="sun">Sun</string>
     <string name="moon">Moon</string>
+    <string name="change_city">Change city</string>
+    <!-- Put your own APP ID here -->
+    <string name="open_weather_maps_app_id">e355a0eb9dd784bd22af704c34053e6a</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+
+    <string name="place_not_found">Sorry, no weather data found.</string>
 </resources>
