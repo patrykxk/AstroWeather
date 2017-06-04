@@ -1,13 +1,8 @@
 package com.patryk.astrocalculator;
 
-import com.astrocalculator.AstroCalculator;
-import com.astrocalculator.AstroDateTime;
-
 import org.junit.Test;
 
-import java.util.Calendar;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -22,23 +17,17 @@ public class ExampleUnitTest {
     }
     @Test
     public void astro() throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH)+1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR);
-        int minute = calendar.get(Calendar.MINUTE);
-        int second = calendar.get(Calendar.SECOND);
-        int timezoneOffset = calendar.get(Calendar.ZONE_OFFSET);
-        boolean daylightSaving = true;
-
-        AstroDateTime astroDateTime = new AstroDateTime(year,month,day,hour,minute,second,timezoneOffset,daylightSaving);
-        AstroCalculator astro = new AstroCalculator(astroDateTime, new AstroCalculator.Location(51,19) );
-        AstroCalculator.MoonInfo moonInfo = astro.getMoonInfo();
-
-        System.out.println("Ilumination: " + moonInfo.getIllumination());
-
-        System.out.println("age: " + moonInfo.getAge());
-        System.out.println(astro.getSunInfo().getSunrise().toString());
+//        String request = "http://api.search.yahoo.com/WebSearchService/V1/webSearch?appid=YahooDemo&query=umbrella&results=10&output=json";
+//
+//
+//        URL url = new URL("http://samples.openweathermap.org/data/2.5/weather?q=Lodz&appid=e355a0eb9dd784bd22af704c34053e6a");
+//        try (InputStream is = url.openStream();
+//             JsonElement jelement = new JsonParser().parse(jsonLine);
+//             JsonObject jobject = jelement.getAsJsonObject();
+//             jobject = jobject.getAsJsonObject("data");
+//        JsonArray jarray = jobject.getAsJsonArray("translations");
+//        jobject = jarray.get(0).getAsJsonObject();
+//        String result = jobject.get("translatedText").toString();
+//        return result;
     }
 }

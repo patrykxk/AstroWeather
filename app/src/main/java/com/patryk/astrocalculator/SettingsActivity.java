@@ -21,8 +21,6 @@ public class SettingsActivity extends AppCompatActivity{
         private double longitude;
         private int frequency;
 
-
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -51,12 +49,12 @@ public class SettingsActivity extends AppCompatActivity{
                 longitude = Double.parseDouble(String.valueOf(longitudeEditText.getText()));
                 frequency = Integer.parseInt(String.valueOf(frequencyEditText.getText()));
 
-                SettingsParameters.longitude = longitude;
-                SettingsParameters.latitude = latitude;
                 SettingsParameters.refreshTimeInMinutes = frequency;
                 if(longitude>180 || longitude<-180 || latitude<-90 || latitude>90){
                     showMessage("Enter correct values!");
                 }else {
+                    SettingsParameters.longitude = longitude;
+                    SettingsParameters.latitude = latitude;
                     FragmentSun.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
                     FragmentMoon.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
                     showMessage("Settings applied!");

@@ -14,6 +14,16 @@ import android.widget.TextView;
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
 
+import org.apache.commons.httpclient.*;
+import org.apache.commons.httpclient.methods.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Calendar;
 
 /**
@@ -78,6 +88,9 @@ public class FragmentSun extends Fragment {
     }
 
     private static void setSunInfoTextViews(AstroCalculator.SunInfo sunInfo){
+
+
+
         sunriseTime.setText("Time" + ": " + formatTime(sunInfo.getSunrise().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
         sunriseAzimuth.setText("Azimuth" + " : "  + String.format("%1$.2f",sunInfo.getAzimuthRise()) + "\u00B0");
         sunsetTime.setText("Time" + ": " + formatTime(sunInfo.getSunset().getHour()) +":"+ formatTime(sunInfo.getSunrise().getMinute()));
