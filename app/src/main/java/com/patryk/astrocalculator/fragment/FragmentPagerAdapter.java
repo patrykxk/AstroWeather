@@ -1,9 +1,7 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.fragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
-import java.util.HashMap;
 
 /**
  * Created by Patryk on 2017-05-07.

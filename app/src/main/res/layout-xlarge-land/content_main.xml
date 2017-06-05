@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:weightSum="2"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.patryk.astrocalculator.MainActivity"
+    tools:context="com.patryk.astrocalculator.activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.patryk.astrocalculator.FragmentSun"
+        android:name="com.patryk.astrocalculator.fragment.FragmentSun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="com.patryk.astrocalculator.FragmentMoon"
+        android:name="com.patryk.astrocalculator.fragment.FragmentMoon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

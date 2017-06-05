@@ -1,4 +1,4 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.patryk.astrocalculator.R;
+import com.patryk.astrocalculator.ZoomOutPageTransformer;
+import com.patryk.astrocalculator.fragment.FragmentPagerAdapter;
+import com.patryk.astrocalculator.fragment.FragmentWeather;
 import com.patryk.astrocalculator.model.CityPreference;
 
 public class MainActivity extends AppCompatActivity {

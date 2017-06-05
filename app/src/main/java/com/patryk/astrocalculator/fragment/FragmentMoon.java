@@ -1,4 +1,4 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.fragment;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
+import com.patryk.astrocalculator.R;
+import com.patryk.astrocalculator.SettingsParameters;
 
 import java.util.Calendar;
 

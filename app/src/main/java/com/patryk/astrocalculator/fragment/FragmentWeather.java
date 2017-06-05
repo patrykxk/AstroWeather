@@ -1,12 +1,12 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.fragment;
 
-import android.support.v4.app.Fragment;
 import android.graphics.Typeface;
 import android.icu.text.DateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,16 +14,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.patryk.astrocalculator.model.CityPreference;
+import com.patryk.astrocalculator.R;
+import com.patryk.astrocalculator.SettingsParameters;
 import com.patryk.astrocalculator.model.FetchWeather;
 
 import org.json.JSONObject;
 
 import java.util.Date;
 import java.util.Locale;
-
-import static android.content.ContentValues.TAG;
-import static com.patryk.astrocalculator.SettingsParameters.cityName;
 
 /**
  * Created by Patryk on 2017-06-04.
@@ -32,7 +30,6 @@ import static com.patryk.astrocalculator.SettingsParameters.cityName;
 public class FragmentWeather  extends Fragment {
 
         Typeface weatherFont;
-
         TextView cityField;
         TextView updatedField;
         TextView detailsField;
@@ -77,7 +74,7 @@ public class FragmentWeather  extends Fragment {
     public void updateWeatherData(final String city){
         new Thread(){
             public void run(){
-                final JSONObject json = FetchWeather.getJSON(getActivity(), city);
+                final JSONObject json = FetchWeather.getJSON(getActivity(), "weather", city);
                 if(json == null){
                     handler.post(new Runnable(){
                         public void run(){
@@ -108,17 +105,25 @@ public class FragmentWeather  extends Fragment {
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");
             JSONObject coord = json.getJSONObject("coord");
+            JSONObject wind = json.getJSONObject("wind");
+
+
             Double lat = coord.getDouble("lat");
             Double lon = coord.getDouble("lon");
             SettingsParameters.latitude = lat;
             SettingsParameters.longitude = lon;
 
-
-            coordinatesField.setText("Lat: " + String.format(Locale.UK, "%.2f", lat) + " Lon: " + String.format(Locale.UK, "%.2f",lon) );
+            coordinatesField.setText("Latitude: " + String.format(Locale.UK, "%.2f", lat) +
+                            "\n" + " Longitude: " + String.format(Locale.UK, "%.2f",lon) );
             detailsField.setText(
-                    details.getString("description").toUpperCase());
-//                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
-//                            "\n" + "Pressure: " + main.getString("pressure") + " hPa");
+                    details.getString("description").toUpperCase() +
+                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
+                            "\n" + "Pressure: " + main.getString("pressure") + " hPa" +
+                            "\n" + "Wind: "+
+                            "\n" + "Speed: " + String.format(Locale.UK, "%.2f", wind.getDouble("speed")) + " m/s" +
+                            "\n" + "Degree: " + String.format(Locale.UK, "%.2f", wind.getDouble("deg")) + "\u00B0" +
+                            "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km"
+                    );
 
             currentTemperatureField.setText(
                     String.format(Locale.UK, "%.2f", main.getDouble("temp"))+ " ℃");

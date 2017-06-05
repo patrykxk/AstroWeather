@@ -1,4 +1,4 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.activity;
 
 /**
  * Created by Patryk on 2017-05-07.
@@ -6,6 +6,8 @@ package com.patryk.astrocalculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.patryk.astrocalculator.R;
 
 public class AboutActivity extends AppCompatActivity {
     @Override

@@ -1,11 +1,15 @@
-package com.patryk.astrocalculator;
-import android.support.v4.app.FragmentManager;
+package com.patryk.astrocalculator.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.patryk.astrocalculator.R;
+import com.patryk.astrocalculator.SettingsParameters;
+import com.patryk.astrocalculator.fragment.FragmentMoon;
+import com.patryk.astrocalculator.fragment.FragmentSun;
 
 /**
  * Created by Patryk on 2017-05-07.
