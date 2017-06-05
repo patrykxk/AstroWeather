@@ -63,7 +63,10 @@ public class FragmentMoon extends Fragment {
         new Thread(runnable).start();
         return view;
     }
+
+
     private static void getMoonInfo() {
+
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;

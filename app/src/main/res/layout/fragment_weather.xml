@@ -23,12 +23,12 @@
             android:textSize="@dimen/title" />
 
         <TextView
-            android:id="@+id/updated_field"
+            android:id="@+id/coordinates_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="Last update"
+            android:text="coordinates"
             android:textSize="@dimen/p" />
 
         <TextView
@@ -60,5 +60,15 @@
             android:gravity="center"
             android:text="details"
             android:textSize="@dimen/p" />
+
+        <TextView
+            android:id="@+id/updated_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Last update"
+            android:textSize="@dimen/p" />
+
     </LinearLayout>
 </RelativeLayout>

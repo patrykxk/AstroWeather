@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import java.util.Date;
 import java.util.Locale;
 
+import static android.content.ContentValues.TAG;
 import static com.patryk.astrocalculator.SettingsParameters.cityName;
 
 /**
@@ -37,6 +38,7 @@ public class FragmentWeather  extends Fragment {
         TextView detailsField;
         TextView currentTemperatureField;
         TextView weatherIcon;
+        TextView coordinatesField;
 
         Handler handler;
 
@@ -49,24 +51,30 @@ public class FragmentWeather  extends Fragment {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_weather, container, false);
             cityField = (TextView)rootView.findViewById(R.id.city_field);
+            coordinatesField = (TextView)rootView.findViewById(R.id.coordinates_field);
             updatedField = (TextView)rootView.findViewById(R.id.updated_field);
             detailsField = (TextView)rootView.findViewById(R.id.details_field);
             currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
             weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
 
             weatherIcon.setTypeface(weatherFont);
+            updateWeatherData(SettingsParameters.cityName);
 
             return rootView;
         }
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateWeatherData(SettingsParameters.cityName);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
-        updateWeatherData("Lodz");
     }
 
-    private void updateWeatherData(final String city){
+    public void updateWeatherData(final String city){
         new Thread(){
             public void run(){
                 final JSONObject json = FetchWeather.getJSON(getActivity(), city);
@@ -93,20 +101,28 @@ public class FragmentWeather  extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void renderWeather(JSONObject json){
         try {
-            cityField.setText(json.getString("name").toUpperCase(Locale.ENGLISH) +
+            cityField.setText(json.getString("name").toUpperCase() +
                     ", " +
                     json.getJSONObject("sys").getString("country"));
 
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");
+            JSONObject coord = json.getJSONObject("coord");
+            Double lat = coord.getDouble("lat");
+            Double lon = coord.getDouble("lon");
+            SettingsParameters.latitude = lat;
+            SettingsParameters.longitude = lon;
 
+
+            coordinatesField.setText("Lat: " + String.format(Locale.UK, "%.2f", lat) + " Lon: " + String.format(Locale.UK, "%.2f",lon) );
             detailsField.setText(
-                    details.getString("description").toUpperCase(Locale.ENGLISH) +
-                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
-                            "\n" + "Pressure: " + main.getString("pressure") + " hPa");
+                    details.getString("description").toUpperCase());
+//                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
+//                            "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 
             currentTemperatureField.setText(
-                    String.format("%.2f", main.getDouble("temp"))+ " ℃");
+                    String.format(Locale.UK, "%.2f", main.getDouble("temp"))+ " ℃");
+
 
             DateFormat df = DateFormat.getDateTimeInstance();
             String updatedOn = df.format(new Date(json.getLong("dt")*1000));
