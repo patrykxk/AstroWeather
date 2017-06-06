@@ -130,48 +130,28 @@ public class FragmentForecast extends Fragment {
 
             for (int i = 0; i < temperaturesFields.size() ; i++) {
                 JSONObject temp = list.getJSONObject(i).getJSONObject("temp");
-                String temp_min = String.format(Locale.UK, "%.2f", temp.getDouble("min"));
-                String temp_max = String.format(Locale.UK, "%.2f", temp.getDouble("max"));
                 String tempDay =  String.format(Locale.UK, "%.2f", temp.getDouble("day"));
 
+                JSONObject weather = list.getJSONObject(i).getJSONArray("weather").getJSONObject(0);
+                String icon = getWeatherIcon(weather.getInt("id"));
+                iconsFields.get(i).setText(icon);
+
                 Date date = new Date(list.getJSONObject(i).getLong("dt")*1000);
-                Log.e("SS", date.toString());
                 dateTextFields.get(i).setText(new SimpleDateFormat("E dd.MM").format(date));
                 temperaturesFields.get(i).setText(tempDay + "℃");
             }
-//            detailsField.setText(
-//                    details.getString("description").toUpperCase() +
-//                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
-//                            "\n" + "Pressure: " + main.getString("pressure") + " hPa" +
-//                            "\n" + "Wind: "+
-//                            "\n" + "Speed: " + String.format(Locale.UK, "%.2f", wind.getDouble("speed")) + " m/s" +
-//                            "\n" + "Degree: " + String.format(Locale.UK, "%.2f", wind.getDouble("deg")) + "\u00B0" +
-//                            "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km"
-//                    );
-//
-//            currentTemperatureField.setText(
-//                    String.format(Locale.UK, "%.2f", main.getDouble("temp"))+ " ℃");
-//
-//
-//            DateFormat df = DateFormat.getDateTimeInstance();
-//            String updatedOn = df.format(new Date(json.getLong("dt")*1000));
-//            updatedField.setText("Last update: " + updatedOn);
+
 
         }catch(Exception e){
             Log.e("SimpleWeather", "One or more fields not found in the JSON data");
         }
     }
 
-    private void setWeatherIcon(int actualId, long sunrise, long sunset){
+    private String getWeatherIcon(int actualId){
         int id = actualId / 100;
         String icon = "";
         if(actualId == 800){
-            long currentTime = new Date().getTime();
-            if(currentTime>=sunrise && currentTime<sunset) {
-                icon = getActivity().getString(R.string.weather_sunny);
-            } else {
-                icon = getActivity().getString(R.string.weather_clear_night);
-            }
+            icon = getActivity().getString(R.string.weather_sunny);
         } else {
             switch(id) {
                 case 2 : icon = getActivity().getString(R.string.weather_thunder);
@@ -188,7 +168,7 @@ public class FragmentForecast extends Fragment {
                     break;
             }
         }
-        //weatherIcon.setText(icon);
+        return icon;
     }
     public void changeCity(String city){
         updateForecastData(city);
