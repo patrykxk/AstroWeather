@@ -42,6 +42,7 @@ public class FragmentForecast extends Fragment {
         List<TextView> temperaturesFields = new ArrayList<>();
         SwipeRefreshLayout mySwipeRefreshLayout;
         Handler handler;
+        final int NUMBER_OF_FORECASTS = 6;
 
         public FragmentForecast(){
             handler = new Handler();
@@ -55,17 +56,17 @@ public class FragmentForecast extends Fragment {
             coordinatesField = (TextView)rootView.findViewById(R.id.coordinates_field);
             mySwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshForecast);
 
-            for (int i = 0; i < 5 ; i++){
-                String id = "date"+(i+1);
+            for (int i = 1; i <= NUMBER_OF_FORECASTS ; i++){
+                String id = "date"+(i);
                 int resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
                 dateTextFields.add((TextView)rootView.findViewById(resID));
 
-                id = "weather_icon"+(i+1);
+                id = "weather_icon"+(i);
                 resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
                 iconsFields.add((TextView)rootView.findViewById(resID));
-                iconsFields.get(i).setTypeface(weatherFont);
+                iconsFields.get(i-1).setTypeface(weatherFont);
 
-                id = "temperature"+(i+1);
+                id = "temperature"+(i);
                 resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
                 temperaturesFields.add((TextView)rootView.findViewById(resID));
             }
@@ -132,6 +133,8 @@ public class FragmentForecast extends Fragment {
                     city.getString("country"));
 
             JSONArray list = json.getJSONArray("list");
+            Log.e("asdasd", String.valueOf(list.length()));
+
             JSONObject coord = city.getJSONObject("coord");
 
             Double lat = coord.getDouble("lat");
@@ -141,22 +144,23 @@ public class FragmentForecast extends Fragment {
 
             coordinatesField.setText("Latitude: " + String.format(Locale.UK, "%.2f", lat) +
                             "\n" + " Longitude: " + String.format(Locale.UK, "%.2f",lon) );
-
-            for (int i = 0; i < temperaturesFields.size() ; i++) {
-                JSONObject temp = list.getJSONObject(i).getJSONObject("temp");
+            Log.e("SIZE", String.valueOf(list.length()));
+            for (int i = 0; i < NUMBER_OF_FORECASTS ; i++) {
+                JSONObject temp = list.getJSONObject(i+1).getJSONObject("temp");
                 String tempDay =  String.format(Locale.UK, "%d", (int)temp.getDouble("day"));
 
-                JSONObject weather = list.getJSONObject(i).getJSONArray("weather").getJSONObject(0);
+                JSONObject weather = list.getJSONObject(i+1).getJSONArray("weather").getJSONObject(0);
                 String icon = getWeatherIcon(weather.getInt("id"));
                 iconsFields.get(i).setText(icon);
 
-                Date date = new Date(list.getJSONObject(i).getLong("dt")*1000);
+                Date date = new Date(list.getJSONObject(i+1).getLong("dt")*1000);
                 dateTextFields.get(i).setText(new SimpleDateFormat("E dd.MM").format(date));
                 temperaturesFields.get(i).setText(tempDay + "℃");
             }
 
 
         }catch(Exception e){
+            e.printStackTrace();
             Log.e("SimpleWeather", "One or more fields not found in the JSON data");
         }
     }
