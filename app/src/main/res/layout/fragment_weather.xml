@@ -50,7 +50,7 @@
             android:layout_marginBottom="5dp"
             android:gravity="center"
             android:text="20C"
-            android:textSize="@dimen/title" />
+            android:textSize="@dimen/icon" />
 
         <TextView
             android:id="@+id/details_field"

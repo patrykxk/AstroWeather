@@ -126,7 +126,7 @@ public class FragmentWeather  extends Fragment {
                     );
 
             currentTemperatureField.setText(
-                    String.format(Locale.UK, "%.2f", main.getDouble("temp"))+ " ℃");
+                    String.format(Locale.UK, "%d", (int)main.getDouble("temp"))+ "℃");
 
 
             DateFormat df = DateFormat.getDateTimeInstance();

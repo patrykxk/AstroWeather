@@ -130,7 +130,7 @@ public class FragmentForecast extends Fragment {
 
             for (int i = 0; i < temperaturesFields.size() ; i++) {
                 JSONObject temp = list.getJSONObject(i).getJSONObject("temp");
-                String tempDay =  String.format(Locale.UK, "%.2f", temp.getDouble("day"));
+                String tempDay =  String.format(Locale.UK, "%d", (int)temp.getDouble("day"));
 
                 JSONObject weather = list.getJSONObject(i).getJSONArray("weather").getJSONObject(0);
                 String icon = getWeatherIcon(weather.getInt("id"));
