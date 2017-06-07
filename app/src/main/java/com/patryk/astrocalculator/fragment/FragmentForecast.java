@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,6 @@ import com.patryk.astrocalculator.model.FetchWeather;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,8 +40,7 @@ public class FragmentForecast extends Fragment {
         List<TextView> dateTextFields = new ArrayList<>();
         List<TextView> iconsFields = new ArrayList<>();
         List<TextView> temperaturesFields = new ArrayList<>();
-
-
+        SwipeRefreshLayout mySwipeRefreshLayout;
         Handler handler;
 
         public FragmentForecast(){
@@ -54,6 +53,8 @@ public class FragmentForecast extends Fragment {
             View rootView = inflater.inflate(R.layout.fragment_forecast, container, false);
             cityField = (TextView)rootView.findViewById(R.id.city_field);
             coordinatesField = (TextView)rootView.findViewById(R.id.coordinates_field);
+            mySwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshForecast);
+
             for (int i = 0; i < 5 ; i++){
                 String id = "date"+(i+1);
                 int resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
@@ -77,7 +78,19 @@ public class FragmentForecast extends Fragment {
         super.onResume();
         updateForecastData(SettingsParameters.cityName);
     }
-
+    @Override
+    public void onViewCreated(View rootView, Bundle savedInstanceState){
+        super.onViewCreated(rootView, savedInstanceState);
+        updateForecastData(SettingsParameters.cityName);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        updateForecastData(SettingsParameters.cityName);
+                    }
+                }
+        );
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +119,7 @@ public class FragmentForecast extends Fragment {
                 }
             }
         }.start();
+        mySwipeRefreshLayout.setRefreshing(false);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

@@ -1,220 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshForecast"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="5dp">
-
-        <TextView
-            android:id="@+id/city_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:text="City"
-            android:textSize="@dimen/title" />
-
-        <TextView
-            android:id="@+id/coordinates_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:text="coordinates"
-            android:textSize="@dimen/p" />
-
-        <TableLayout
+        android:layout_height="match_parent">
+        <!--tools:context="ah.hathi.simpleweather.WeatherActivity$PlaceholderFragment" >-->
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TableRow
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="5dp">
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp">
 
                 <TextView
-                    android:id="@+id/date1"
+                    android:id="@+id/city_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="@dimen/h1" />
-
-                <TextView
-                    android:id="@+id/weather_icon1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="ICO"
-                    android:textSize="@dimen/h1" />
+                    android:text="City"
+                    android:textSize="@dimen/title" />
 
                 <TextView
-                    android:id="@+id/temperature1"
+                    android:id="@+id/coordinates_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="temperature"
-                    android:textSize="@dimen/h1" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:id="@+id/date2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="@dimen/h1" />
-
-                <TextView
-                    android:id="@+id/weather_icon2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="ICO"
-                    android:textSize="@dimen/h1" />
+                    android:text="coordinates"
+                    android:textSize="@dimen/p" />
 
-                <TextView
-                    android:id="@+id/temperature2"
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="temperature"
-                    android:textSize="@dimen/h1" />
-            </TableRow>
+                    android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp">
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
 
-                <TextView
-                    android:id="@+id/date3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="@dimen/h1" />
+                        <TextView
+                            android:id="@+id/date1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/weather_icon3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/weather_icon1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
 
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="ICO"
-                    android:textSize="@dimen/h1" />
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/temperature3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="temperature"
-                    android:textSize="@dimen/h1" />
-            </TableRow>
+                        <TextView
+                            android:id="@+id/temperature1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp">
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
 
-                <TextView
-                    android:id="@+id/date4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="@dimen/h1" />
+                        <TextView
+                            android:id="@+id/date2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/weather_icon4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/weather_icon2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
 
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="ICO"
-                    android:textSize="@dimen/h1" />
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/temperature4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="temperature"
-                    android:textSize="@dimen/h1" />
-            </TableRow>
+                        <TextView
+                            android:id="@+id/temperature2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp">
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
 
-                <TextView
-                    android:id="@+id/date5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:text="Date"
-                    android:textSize="@dimen/h1" />
+                        <TextView
+                            android:id="@+id/date3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/weather_icon5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/weather_icon3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
 
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="ICO"
-                    android:textSize="@dimen/h1" />
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
 
-                <TextView
-                    android:id="@+id/temperature5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="temperature"
-                    android:textSize="@dimen/h1" />
-            </TableRow>
+                        <TextView
+                            android:id="@+id/temperature3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
 
-        </TableLayout>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
 
-    </LinearLayout>
-</ScrollView>
+                        <TextView
+                            android:id="@+id/date4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/date5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
