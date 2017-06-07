@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class FragmentWeather  extends Fragment {
         TextView currentTemperatureField;
         TextView weatherIcon;
         TextView coordinatesField;
+        SwipeRefreshLayout mySwipeRefreshLayout;
 
         Handler handler;
 
@@ -53,6 +55,7 @@ public class FragmentWeather  extends Fragment {
             detailsField = (TextView)rootView.findViewById(R.id.details_field);
             currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
             weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
+            mySwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefresh);
 
             weatherIcon.setTypeface(weatherFont);
             updateWeatherData(SettingsParameters.cityName);
@@ -64,11 +67,26 @@ public class FragmentWeather  extends Fragment {
         super.onResume();
         updateWeatherData(SettingsParameters.cityName);
     }
+    @Override
+    public void onViewCreated(View rootView, Bundle savedInstanceState){
+        super.onViewCreated(rootView, savedInstanceState);
+        updateWeatherData(SettingsParameters.cityName);
+        mySwipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        updateWeatherData(SettingsParameters.cityName);
+                    }
+                }
+        );
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
+
     }
 
     public void updateWeatherData(final String city){
@@ -93,6 +111,7 @@ public class FragmentWeather  extends Fragment {
                 }
             }
         }.start();
+        mySwipeRefreshLayout.setRefreshing(false);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -115,16 +134,20 @@ public class FragmentWeather  extends Fragment {
 
             coordinatesField.setText("Latitude: " + String.format(Locale.UK, "%.2f", lat) +
                             "\n" + " Longitude: " + String.format(Locale.UK, "%.2f",lon) );
-            detailsField.setText(
+            StringBuilder detailsStringBuilder = new StringBuilder(
                     details.getString("description").toUpperCase() +
                             "\n" + "Humidity: " + main.getString("humidity") + "%" +
-                            "\n" + "Pressure: " + main.getString("pressure") + " hPa" +
-                            "\n" + "Wind: "+
-                            "\n" + "Speed: " + String.format(Locale.UK, "%.2f", wind.getDouble("speed")) + " m/s" +
-                            "\n" + "Degree: " + String.format(Locale.UK, "%.2f", wind.getDouble("deg")) + "\u00B0" +
-                            "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km"
-                    );
+                            "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 
+            detailsStringBuilder.append(
+                            "\n" + "Wind: "
+                            +"\n" + "Speed: " + String.format(Locale.UK, "%.2f", wind.getDouble("speed")) + " m/s");
+            if(wind.has("deg")) {
+                detailsStringBuilder.append("\n" + "Degree: " + String.format(Locale.UK, "%.2f", wind.getDouble("deg")) + "\u00B0");
+            }
+            detailsStringBuilder.append(
+                            "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km");
+            detailsField.setText(detailsStringBuilder);
             currentTemperatureField.setText(
                     String.format(Locale.UK, "%d", (int)main.getDouble("temp"))+ "℃");
 
@@ -138,6 +161,7 @@ public class FragmentWeather  extends Fragment {
                     json.getJSONObject("sys").getLong("sunset") * 1000);
 
         }catch(Exception e){
+            e.printStackTrace();
             Log.e("SimpleWeather", "One or more fields not found in the JSON data");
         }
     }
