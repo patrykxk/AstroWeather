@@ -144,18 +144,23 @@ public class FragmentForecast extends Fragment {
 
             coordinatesField.setText("Latitude: " + String.format(Locale.UK, "%.2f", lat) +
                             "\n" + " Longitude: " + String.format(Locale.UK, "%.2f",lon) );
-            Log.e("SIZE", String.valueOf(list.length()));
             for (int i = 0; i < NUMBER_OF_FORECASTS ; i++) {
-                JSONObject temp = list.getJSONObject(i+1).getJSONObject("temp");
-                String tempDay =  String.format(Locale.UK, "%d", (int)temp.getDouble("day"));
+                Date date = new Date(list.getJSONObject(i+1).getLong("dt")*1000);
+                dateTextFields.get(i).setText(new SimpleDateFormat("E dd.MM").format(date));
 
                 JSONObject weather = list.getJSONObject(i+1).getJSONArray("weather").getJSONObject(0);
                 String icon = getWeatherIcon(weather.getInt("id"));
                 iconsFields.get(i).setText(icon);
 
-                Date date = new Date(list.getJSONObject(i+1).getLong("dt")*1000);
-                dateTextFields.get(i).setText(new SimpleDateFormat("E dd.MM").format(date));
-                temperaturesFields.get(i).setText(tempDay + "℃");
+                JSONObject temp = list.getJSONObject(i+1).getJSONObject("temp");
+
+                StringBuilder temperature = new StringBuilder(String.format(Locale.UK, "%d", (int)temp.getDouble("day")));
+                if(SettingsParameters.units.equalsIgnoreCase("Metric")) {
+                    temperature.append("ºC");
+                }else if(SettingsParameters.units.equalsIgnoreCase("Imperial")){
+                    temperature.append("ºF");
+                }
+                temperaturesFields.get(i).setText(temperature);
             }
 
 

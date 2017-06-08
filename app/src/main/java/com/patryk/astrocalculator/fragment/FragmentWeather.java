@@ -148,9 +148,14 @@ public class FragmentWeather  extends Fragment {
             detailsStringBuilder.append(
                             "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km");
             detailsField.setText(detailsStringBuilder);
-            currentTemperatureField.setText(
-                    String.format(Locale.UK, "%d", (int)main.getDouble("temp"))+ "℃");
 
+            StringBuilder temperature = new StringBuilder(String.format(Locale.UK, "%d", (int)main.getDouble("temp")));
+            if(SettingsParameters.units.equalsIgnoreCase("Metric")) {
+                temperature.append("ºC");
+            }else if(SettingsParameters.units.equalsIgnoreCase("Imperial")){
+                temperature.append("ºF");
+            }
+            currentTemperatureField.setText(temperature);
 
             DateFormat df = DateFormat.getDateTimeInstance();
             String updatedOn = df.format(new Date(json.getLong("dt")*1000));
