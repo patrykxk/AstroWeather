@@ -37,6 +37,7 @@ public class FragmentWeather  extends Fragment {
         TextView currentTemperatureField;
         TextView weatherIcon;
         TextView coordinatesField;
+        TextView descriptionField;
         SwipeRefreshLayout mySwipeRefreshLayout;
 
         Handler handler;
@@ -52,6 +53,7 @@ public class FragmentWeather  extends Fragment {
             cityField = (TextView)rootView.findViewById(R.id.city_field);
             coordinatesField = (TextView)rootView.findViewById(R.id.coordinates_field);
             updatedField = (TextView)rootView.findViewById(R.id.updated_field);
+            descriptionField = (TextView)rootView.findViewById(R.id.description);
             detailsField = (TextView)rootView.findViewById(R.id.details_field);
             currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
             weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
@@ -133,8 +135,9 @@ public class FragmentWeather  extends Fragment {
 
             coordinatesField.setText("Latitude: " + String.format(Locale.UK, "%.2f", lat) +
                             "\n" + " Longitude: " + String.format(Locale.UK, "%.2f",lon) );
+
+            descriptionField.setText(details.getString("description").toUpperCase());
             StringBuilder detailsStringBuilder = new StringBuilder(
-                    details.getString("description").toUpperCase() +
                             "\n" + "Humidity: " + main.getString("humidity") + "%" +
                             "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 

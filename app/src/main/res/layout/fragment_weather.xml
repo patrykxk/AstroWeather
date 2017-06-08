@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="-20dp"
                 android:gravity="center"
                 android:text="ICO"
                 android:textSize="@dimen/icon" />
@@ -51,10 +51,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="-15dp"
                 android:gravity="center"
                 android:text="20C"
                 android:textSize="@dimen/icon" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="description"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/details_field"
