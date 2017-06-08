@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="2"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.patryk.astrocalculator.activity.MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.patryk.astrocalculator.activity.MainActivity"
+        tools:showIn="@layout/activity_main">
 
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.patryk.astrocalculator.fragment.FragmentSun"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_sun" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4">
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="com.patryk.astrocalculator.fragment.FragmentMoon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        tools:layout="@layout/fragment_moon" />
-</LinearLayout>
+        <fragment
+            android:id="@+id/fragment3"
+            android:name="com.patryk.astrocalculator.fragment.FragmentWeather"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_weather" />
+
+        <fragment
+            android:id="@+id/fragment4"
+            android:name="com.patryk.astrocalculator.fragment.FragmentForecast"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_forecast" />
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.patryk.astrocalculator.fragment.FragmentSun"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_sun" />
+
+        <fragment
+            android:id="@+id/fragment2"
+            android:name="com.patryk.astrocalculator.fragment.FragmentMoon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_moon" />
+    </LinearLayout>
+
+</HorizontalScrollView>

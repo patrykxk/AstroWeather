@@ -58,16 +58,16 @@ public class FragmentForecast extends Fragment {
 
             for (int i = 1; i <= NUMBER_OF_FORECASTS ; i++){
                 String id = "date"+(i);
-                int resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
+                int resID = getResources().getIdentifier(id, "id", getContext().getPackageName());
                 dateTextFields.add((TextView)rootView.findViewById(resID));
 
                 id = "weather_icon"+(i);
-                resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
+                resID = getResources().getIdentifier(id, "id", getContext().getPackageName());
                 iconsFields.add((TextView)rootView.findViewById(resID));
                 iconsFields.get(i-1).setTypeface(weatherFont);
 
                 id = "temperature"+(i);
-                resID = getResources().getIdentifier(id, "id", MainActivity.PACKAGE_NAME);
+                resID = getResources().getIdentifier(id, "id", getContext().getPackageName());
                 temperaturesFields.add((TextView)rootView.findViewById(resID));
             }
 

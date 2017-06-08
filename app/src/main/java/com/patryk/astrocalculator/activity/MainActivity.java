@@ -14,7 +14,6 @@ import com.patryk.astrocalculator.fragment.FragmentPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     FragmentPagerAdapter adapterViewPager;
-    public static String PACKAGE_NAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        PACKAGE_NAME = getApplicationContext().getPackageName();
         if (!getResources().getBoolean(R.bool.isTablet)) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
             viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
