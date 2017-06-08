@@ -13,6 +13,4 @@ public class SettingsParameters {
         public static int refreshTimeInMinutes = 30;
         public static String cityName = "Lodz";
         public static String units = "metric";
-        public static ArrayList<String> citiesList = new ArrayList<>();
-
 }
