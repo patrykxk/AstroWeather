@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.SettingsActivity" />
+        <activity android:name=".activity.CitiesActivity" />
     </application>
 
 </manifest>

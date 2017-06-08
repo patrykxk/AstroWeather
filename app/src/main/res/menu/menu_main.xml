@@ -6,6 +6,9 @@
         android:id="@+id/Settings"
         android:title="@string/action_settings" />
     <item
+        android:id="@+id/Cities"
+        android:title="@string/Cities" />
+    <item
         android:id="@+id/About"
         android:title="@string/action_about" />
     <item

@@ -1,22 +1,16 @@
 package com.patryk.astrocalculator.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import com.patryk.astrocalculator.R;
 import com.patryk.astrocalculator.ZoomOutPageTransformer;
 import com.patryk.astrocalculator.fragment.FragmentPagerAdapter;
-import com.patryk.astrocalculator.fragment.FragmentWeather;
-import com.patryk.astrocalculator.model.CityPreference;
 
 public class MainActivity extends AppCompatActivity {
     FragmentPagerAdapter adapterViewPager;
@@ -65,8 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent2 = new Intent(this, AboutActivity.class);
                 startActivity(intent2);
                 return true;
-            case R.id.change_city:
-                showInputDialog();
+            case R.id.Cities:
+                Intent intent3 = new Intent(this, CitiesActivity.class);
+                startActivity(intent3);
                 return true;
             case R.id.Exit:
                 Intent intentExit = new Intent(getApplicationContext(), MainActivity.class);
@@ -79,29 +74,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    private void showInputDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Change city");
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-        builder.setPositiveButton("Go", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                changeCity(input.getText().toString());
-            }
-        });
-        builder.show();
-    }
-
-    public void changeCity(String city){
-        FragmentWeather wf = (FragmentWeather)getSupportFragmentManager()
-                .findFragmentById(R.id.viewPager);
-
-        wf.changeCity("Warszawa");
-        new CityPreference(this).setCity("Warszawa");
-    }
-
-
-
 }

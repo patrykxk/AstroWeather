@@ -133,7 +133,6 @@ public class FragmentForecast extends Fragment {
                     city.getString("country"));
 
             JSONArray list = json.getJSONArray("list");
-            Log.e("asdasd", String.valueOf(list.length()));
 
             JSONObject coord = city.getJSONObject("coord");
 

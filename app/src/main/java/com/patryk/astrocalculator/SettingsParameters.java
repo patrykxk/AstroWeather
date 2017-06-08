@@ -1,6 +1,8 @@
 package com.patryk.astrocalculator;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by Patryk on 2017-05-07.
  */
@@ -11,4 +13,6 @@ public class SettingsParameters {
         public static int refreshTimeInMinutes = 30;
         public static String cityName = "Lodz";
         public static String units = "metric";
+        public static ArrayList<String> citiesList = new ArrayList<>();
+
 }

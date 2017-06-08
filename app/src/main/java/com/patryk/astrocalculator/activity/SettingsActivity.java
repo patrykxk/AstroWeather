@@ -1,8 +1,10 @@
 package com.patryk.astrocalculator.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +17,6 @@ import com.patryk.astrocalculator.R;
 import com.patryk.astrocalculator.SettingsParameters;
 import com.patryk.astrocalculator.fragment.FragmentMoon;
 import com.patryk.astrocalculator.fragment.FragmentSun;
-
-import java.util.Set;
 
 /**
  * Created by Patryk on 2017-05-07.
@@ -31,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
     private Spinner spinner;
     private String[] arraySpinner;
     private String selectedUnit = SettingsParameters.units;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         int spinnerPosition = adapter.getPosition(SettingsParameters.units);
         spinner.setSelection(spinnerPosition);
 
-        setButtonListener();
+        setButtonApplyListener();
         this.cityEditText.setText(SettingsParameters.cityName);
         this.frequencyEditText.setText(String.valueOf(SettingsParameters.refreshTimeInMinutes));
     }
@@ -66,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
 
     }
 
-    private void setButtonListener() {
+    private void setButtonApplyListener() {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
