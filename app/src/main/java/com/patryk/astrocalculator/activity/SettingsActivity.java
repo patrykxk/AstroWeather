@@ -24,13 +24,9 @@ import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText cityEditText;
-    private EditText latitudeEditText;
-    private EditText longitudeEditText;
     private EditText frequencyEditText;
     private Button applyButton;
     private String city;
-    private double latitude;
-    private double longitude;
     private int frequency;
     private Spinner spinner;
     private String[] arraySpinner;
@@ -41,8 +37,6 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         cityEditText = (EditText) findViewById(R.id.city);
-        latitudeEditText = (EditText) findViewById(R.id.latitude);
-        longitudeEditText = (EditText) findViewById(R.id.longtitude);
         frequencyEditText = (EditText) findViewById(R.id.frequency);
         applyButton = (Button) findViewById(R.id.apply);
 
@@ -59,16 +53,12 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
 
         setButtonListener();
         this.cityEditText.setText(SettingsParameters.cityName);
-        this.latitudeEditText.setText(String.valueOf(SettingsParameters.longitude));
-        this.longitudeEditText.setText(String.valueOf(SettingsParameters.latitude));
         this.frequencyEditText.setText(String.valueOf(SettingsParameters.refreshTimeInMinutes));
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
         selectedUnit = String.valueOf(parent.getItemAtPosition(pos));
-
     }
 
     @Override
@@ -80,29 +70,20 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ("".equals(latitudeEditText.getText().toString().trim()) || "".equals(longitudeEditText.getText().toString().trim())
-                        || "".equals(frequencyEditText.getText().toString().trim())) {
+                if ("".equals(frequencyEditText.getText().toString().trim())) {
                     showMessage("Enter values!");
                     return;
                 }
                 city = String.valueOf(cityEditText.getText());
-                latitude = Double.parseDouble(String.valueOf(latitudeEditText.getText()));
-                longitude = Double.parseDouble(String.valueOf(longitudeEditText.getText()));
                 frequency = Integer.parseInt(String.valueOf(frequencyEditText.getText()));
 
+                SettingsParameters.cityName = city;
+                SettingsParameters.refreshTimeInMinutes = frequency;
+                SettingsParameters.units = selectedUnit;
+                FragmentSun.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
+                FragmentMoon.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
+                showMessage("Settings applied!");
 
-                if (longitude > 180 || longitude < -180 || latitude < -90 || latitude > 90) {
-                    showMessage("Enter correct values!");
-                } else {
-                    SettingsParameters.cityName = city;
-                    SettingsParameters.longitude = longitude;
-                    SettingsParameters.latitude = latitude;
-                    SettingsParameters.refreshTimeInMinutes = frequency;
-                    SettingsParameters.units = selectedUnit;
-                    FragmentSun.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
-                    FragmentMoon.updateInfo(SettingsParameters.longitude, SettingsParameters.latitude);
-                    showMessage("Settings applied!");
-                }
             }
         });
     }

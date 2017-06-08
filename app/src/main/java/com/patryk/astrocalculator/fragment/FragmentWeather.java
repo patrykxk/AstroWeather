@@ -126,7 +126,6 @@ public class FragmentWeather  extends Fragment {
             JSONObject coord = json.getJSONObject("coord");
             JSONObject wind = json.getJSONObject("wind");
 
-
             Double lat = coord.getDouble("lat");
             Double lon = coord.getDouble("lon");
             SettingsParameters.latitude = lat;
@@ -198,9 +197,6 @@ public class FragmentWeather  extends Fragment {
             }
         }
         weatherIcon.setText(icon);
-    }
-    public void changeCity(String city){
-        updateWeatherData(city);
     }
 
 }

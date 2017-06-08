@@ -66,68 +66,6 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="5dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:paddingRight="10dp"
-                android:text="@string/latitude"
-                android:textSize="@dimen/p" />
-
-            <EditText
-                android:id="@+id/latitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                android:paddingRight="10dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:weightSum="2">
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView7"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/longitude"
-                android:textSize="@dimen/p" />
-
-            <EditText
-                android:id="@+id/longtitude"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="numberDecimal" />
-        </TableRow>
-
-        <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
