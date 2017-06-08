@@ -138,14 +138,20 @@ public class FragmentWeather  extends Fragment {
                             "\n" + "Humidity: " + main.getString("humidity") + "%" +
                             "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 
-            detailsStringBuilder.append(
-                            "\n" + "Wind: "
-                            +"\n" + "Speed: " + String.format(Locale.UK, "%.2f", wind.getDouble("speed")) + " m/s");
-            if(wind.has("deg")) {
-                detailsStringBuilder.append("\n" + "Degree: " + String.format(Locale.UK, "%.2f", wind.getDouble("deg")) + "\u00B0");
+            detailsStringBuilder.append("\n" + "Wind: " + "\n" + "Speed: ")
+                    .append(String.format(Locale.UK, "%.2f", wind.getDouble("speed")));
+            if(SettingsParameters.units.equalsIgnoreCase("Metric")) {
+                detailsStringBuilder.append(" m/s");
+            }else if(SettingsParameters.units.equalsIgnoreCase("Imperial")){
+                detailsStringBuilder.append(" mil/h");
             }
-            detailsStringBuilder.append(
-                            "\n" + "Visibility: " + json.getDouble("visibility")/1000 + "km");
+
+            if(wind.has("deg")) {
+                detailsStringBuilder.append("\n" + "Degree: ").append(String.format(Locale.UK, "%.2f", wind.getDouble("deg"))).append("\u00B0");
+            }
+            if(json.has("visibility")) {
+                detailsStringBuilder.append("\n" + "Visibility: ").append(json.getDouble("visibility") / 1000).append("km");
+            }
             detailsField.setText(detailsStringBuilder);
 
             StringBuilder temperature = new StringBuilder(String.format(Locale.UK, "%d", (int)main.getDouble("temp")));
