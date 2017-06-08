@@ -17,11 +17,11 @@ import com.patryk.astrocalculator.R;
 
 public class FetchWeather {
     private static final String OPEN_WEATHER_MAP_API =
-            "http://api.openweathermap.org/data/2.5/%s?q=%s&units=metric";
+            "http://api.openweathermap.org/data/2.5/%s?q=%s&units=metric&cnt=%d";//TODO &cnt={cnt} dodać liczbe dni
 
     public static JSONObject getJSON(Context context, String responseType, String city){
         try {
-            URL url = new URL(String.format(OPEN_WEATHER_MAP_API, responseType, city));
+            URL url = new URL(String.format(OPEN_WEATHER_MAP_API, responseType, city,11));
             HttpURLConnection connection =
                     (HttpURLConnection)url.openConnection();
 
@@ -51,4 +51,7 @@ public class FetchWeather {
             return null;
         }
     }
+//    public static JSONObject getJSON(Context context, String responseType, String city){
+//
+//    }
 }

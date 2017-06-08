@@ -56,7 +56,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon1"
@@ -67,7 +67,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature1"
@@ -77,7 +77,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
                     <TableRow
@@ -92,7 +92,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon2"
@@ -103,7 +103,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature2"
@@ -113,7 +113,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
                     <TableRow
@@ -128,7 +128,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon3"
@@ -139,7 +139,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature3"
@@ -149,7 +149,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
                     <TableRow
@@ -164,7 +164,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon4"
@@ -175,7 +175,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature4"
@@ -185,7 +185,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
                     <TableRow
@@ -200,7 +200,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon5"
@@ -211,7 +211,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature5"
@@ -221,7 +221,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
                     <TableRow
@@ -236,7 +236,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_weight="1"
                             android:text="Date"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/weather_icon6"
@@ -247,7 +247,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="ICO"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
 
                         <TextView
                             android:id="@+id/temperature6"
@@ -257,9 +257,152 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="temperature"
-                            android:textSize="30sp" />
+                            android:textSize="@dimen/h1" />
                     </TableRow>
 
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/date7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/date8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/date9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:id="@+id/date10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:text="Date"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/weather_icon10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="ICO"
+                            android:textSize="@dimen/h1" />
+
+                        <TextView
+                            android:id="@+id/temperature10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="temperature"
+                            android:textSize="@dimen/h1" />
+                    </TableRow>
                 </TableLayout>
             </LinearLayout>
         </ScrollView>

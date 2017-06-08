@@ -42,7 +42,7 @@ public class FragmentForecast extends Fragment {
         List<TextView> temperaturesFields = new ArrayList<>();
         SwipeRefreshLayout mySwipeRefreshLayout;
         Handler handler;
-        final int NUMBER_OF_FORECASTS = 6;
+        final int NUMBER_OF_FORECASTS = 10;
 
         public FragmentForecast(){
             handler = new Handler();
