@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         PACKAGE_NAME = getApplicationContext().getPackageName();
-        if(!getResources().getBoolean(R.bool.isTablet)) {
+        if (!getResources().getBoolean(R.bool.isTablet)) {
             ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
             viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -47,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.Settings:
                 Intent intent = new Intent(this, SettingsActivity.class);
@@ -71,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
 }

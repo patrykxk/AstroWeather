@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.patryk.astrocalculator.R;
-import com.patryk.astrocalculator.SettingsParameters;
+import com.patryk.astrocalculator.data.SettingsParameters;
 import com.patryk.astrocalculator.activity.MainActivity;
 import com.patryk.astrocalculator.model.FetchWeather;
 
@@ -101,7 +101,7 @@ public class FragmentForecast extends Fragment {
     public void updateForecastData(final String city){
         new Thread(){
             public void run(){
-                final JSONObject json = FetchWeather.getJSON(getActivity(), "forecast/daily", city);
+                final JSONObject json = FetchWeather.getJSON(getActivity(),handler, "forecast/daily", city);
                 if(json == null){
                     handler.post(new Runnable(){
                         public void run(){

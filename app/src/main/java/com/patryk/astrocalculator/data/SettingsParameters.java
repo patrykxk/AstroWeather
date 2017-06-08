@@ -1,4 +1,4 @@
-package com.patryk.astrocalculator;
+package com.patryk.astrocalculator.data;
 
 
 import java.util.ArrayList;
