@@ -68,9 +68,7 @@ public class CitiesActivity extends AppCompatActivity implements OnItemLongClick
 
                 final EditText input = new EditText(that);
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                lp.setMargins(10,0,10,0);
-                input.setLayoutParams(lp);
+
                 builder.setView(input);
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override

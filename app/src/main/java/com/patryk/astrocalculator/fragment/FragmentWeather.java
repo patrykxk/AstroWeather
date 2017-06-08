@@ -5,6 +5,7 @@ import android.icu.text.DateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by Patryk on 2017-06-04.
@@ -39,8 +41,10 @@ public class FragmentWeather extends Fragment {
     TextView coordinatesField;
     TextView descriptionField;
     SwipeRefreshLayout mySwipeRefreshLayout;
-
+    String currentCity = "";
+    Runnable runnable = null;
     Handler handler;
+    private Handler looperHandler = new Handler(Looper.getMainLooper());
 
     public FragmentWeather() {
         handler = new Handler();
@@ -61,6 +65,14 @@ public class FragmentWeather extends Fragment {
 
         weatherIcon.setTypeface(weatherFont);
         updateWeatherData(SettingsParameters.cityName);
+        runnable = new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void run() {
+                updateWeatherData(SettingsParameters.cityName);
+                looperHandler.postDelayed(runnable, SettingsParameters.refreshTimeInMinutes * 60000);
+            }
+        };
+        new Thread(runnable).start();
 
         return rootView;
     }
@@ -68,7 +80,9 @@ public class FragmentWeather extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        updateWeatherData(SettingsParameters.cityName);
+        if(!currentCity.equals(SettingsParameters.cityName)){
+            updateWeatherData(SettingsParameters.cityName);
+        }
     }
 
     @Override
@@ -94,6 +108,8 @@ public class FragmentWeather extends Fragment {
     }
 
     public void updateWeatherData(final String city) {
+        Log.e("u","pdating");
+        currentCity = city;
         new Thread() {
             public void run() {
                 final JSONObject json = FetchWeather.getJSON(getActivity(), handler, "weather", city);
