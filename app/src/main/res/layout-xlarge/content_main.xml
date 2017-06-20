@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:weightSum="2"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.patryk.astrocalculator.activity.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -19,16 +20,16 @@
         <fragment
             android:id="@+id/fragment3"
             android:name="com.patryk.astrocalculator.fragment.FragmentWeather"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             tools:layout="@layout/fragment_weather" />
 
         <fragment
             android:id="@+id/fragment4"
             android:name="com.patryk.astrocalculator.fragment.FragmentForecast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             tools:layout="@layout/fragment_forecast" />
     </LinearLayout>
@@ -42,16 +43,16 @@
         <fragment
             android:id="@+id/fragment2"
             android:name="com.patryk.astrocalculator.fragment.FragmentMoon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             tools:layout="@layout/fragment_moon" />
 
         <fragment
             android:id="@+id/fragment"
             android:name="com.patryk.astrocalculator.fragment.FragmentSun"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             tools:layout="@layout/fragment_sun" />
 

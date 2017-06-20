@@ -108,7 +108,6 @@ public class FragmentWeather extends Fragment {
     }
 
     public void updateWeatherData(final String city) {
-        Log.e("u","pdating");
         currentCity = city;
         new Thread() {
             public void run() {
@@ -183,9 +182,9 @@ public class FragmentWeather extends Fragment {
             }
             currentTemperatureField.setText(temperature);
 
-            DateFormat df = DateFormat.getDateTimeInstance();
-            String updatedOn = df.format(new Date(json.getLong("dt") * 1000));
-            updatedField.setText("Last update: " + updatedOn);
+            //DateFormat df = DateFormat.getDateTimeInstance();
+            //String updatedOn = df.format(new Date(json.getLong("dt") * 1000));
+            //updatedField.setText("Last update: " + updatedOn);
 
             setWeatherIcon(details.getInt("id"),
                     json.getJSONObject("sys").getLong("sunrise") * 1000,
